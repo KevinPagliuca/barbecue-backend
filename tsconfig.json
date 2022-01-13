@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {   
+    "target": "es6",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "typeRoots": ["./src/@types", "node_modules/@types"],    
+    "baseUrl": "./src",                                
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@config/*": ["config/*"],
+      "@shared/*": ["shared/*"],
+      "@errors/*": ["shared/errors/*"],
+      "@utils/*": ["utils/*"],
+    },
+    "resolveJsonModule": true,                        
+  }
+}
