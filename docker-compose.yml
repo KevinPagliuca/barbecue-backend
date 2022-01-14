@@ -1,19 +1,6 @@
 version: "3.9"
 
 services:
-  db:
-    container_name: churras_db
-    image: postgres
-    restart: always
-    ports:
-      - "5433:5432"
-    environment:
-      - POSTGRES_USER=kevinpagliuca
-      - POSTGRES_PASSWORD=kevindocker
-      - POSTGRES_DB=churrasdocker
-    volumes:
-      - pgdata:/data/postgres
-
   churras:
     build: .
     container_name: churras_app
@@ -25,6 +12,19 @@ services:
       - db
     depends_on:
       - db
+
+  db:
+    container_name: churras_db
+    image: postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=kevinpagliuca
+      - POSTGRES_PASSWORD=kevindocker
+      - POSTGRES_DB=churrasdocker
+    volumes:
+      - pgdata:/data/postgres  
     
 volumes:
   pgdata:

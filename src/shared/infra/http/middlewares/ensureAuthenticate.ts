@@ -33,6 +33,7 @@ export async function ensureAuthenticated(
     });
 
     if (!user) throw new AppError('Usuário não existe!', 404);
+    delete user.password;
     req.user = user;
     next();
   } catch {

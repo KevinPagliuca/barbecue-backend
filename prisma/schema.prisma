@@ -11,13 +11,14 @@ datasource db {
 }
 
 model User {
-  id         String   @id @default(uuid())
+  id         String    @id @default(uuid())
   name       String
   email      String
   birthday   DateTime
   password   String
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  Churras    Churras[]
 }
 
 model Churras {
@@ -30,8 +31,10 @@ model Churras {
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  user_id    String
 
-  Participants Participants[]
+  participants Participants[]
+  users        User           @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Participants {
@@ -40,5 +43,5 @@ model Participants {
   value      Float
   churras_id String
 
-  churras Churras @relation(fields: [churras_id], references: [id])
+  churras Churras @relation(fields: [churras_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
