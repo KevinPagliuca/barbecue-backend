@@ -5,7 +5,13 @@ class ListChurrasService {
     const churras = await churrasRepository.findMany({
       include: {
         participants: true,
-        user: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+          },
+        },
       },
     });
 
