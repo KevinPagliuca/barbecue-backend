@@ -3,7 +3,6 @@ type User = {
   name: string;
   email: string;
   birthday: Date;
-  password: string;
   created_at: Date;
   updated_at: Date;
 };

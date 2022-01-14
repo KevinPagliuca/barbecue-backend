@@ -23,6 +23,14 @@ class CreateUserService {
         name,
         birthday: new Date(birthday),
       },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        birthday: true,
+        created_at: true,
+        updated_at: true,
+      },
     });
 
     if (!user) {
@@ -35,8 +43,6 @@ class CreateUserService {
       subject: user.id,
       expiresIn: '1d',
     });
-
-    delete user.password;
 
     return {
       user,

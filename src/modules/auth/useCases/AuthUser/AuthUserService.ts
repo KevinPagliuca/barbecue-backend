@@ -27,9 +27,16 @@ class AuthUserService {
       expiresIn: '1d',
     });
 
-    delete user.password;
+    const formatedUser = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      birthday: user.birthday,
+      created_at: user.created_at,
+      updated_at: user.updated_at,
+    };
     return {
-      user,
+      user: formatedUser,
       token,
     };
   }

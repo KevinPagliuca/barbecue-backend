@@ -30,10 +30,17 @@ export async function ensureAuthenticated(
 
     const user = await userRepository.findFirst({
       where: { id: user_id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        birthday: true,
+        created_at: true,
+        updated_at: true,
+      },
     });
 
     if (!user) throw new AppError('Usuário não existe!', 404);
-    delete user.password;
     req.user = user;
     next();
   } catch {

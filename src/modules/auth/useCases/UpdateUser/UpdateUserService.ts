@@ -17,9 +17,15 @@ class UpdateUserService {
         email,
         birthday: birthday ? new Date(birthday) : user.birthday,
       },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        birthday: true,
+        created_at: true,
+        updated_at: true,
+      },
     });
-
-    delete updatedUser.password;
 
     return updatedUser;
   }
