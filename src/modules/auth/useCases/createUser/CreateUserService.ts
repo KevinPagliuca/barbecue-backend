@@ -1,13 +1,13 @@
 import { hash } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
-import { ICreateUserDTO } from '@modules/auth/dtos';
-import { AppError } from '@shared/errors/AppError';
-import { prismaClient } from '@shared/prisma';
+import { AppError } from '../../../../shared/errors/AppError';
+import { userRepository } from '../../../../shared/prisma';
+import { ICreateUserDTO } from '../../dtos';
 
 class CreateUserService {
   async execute({ email, password, name, birthday }: ICreateUserDTO) {
-    const userAlreadyExists = await prismaClient.user.findFirst({
+    const userAlreadyExists = await userRepository.findFirst({
       where: { email },
     });
 
@@ -16,7 +16,7 @@ class CreateUserService {
     }
     const passwordHash = await hash(password, 8);
 
-    const user = await prismaClient.user.create({
+    const user = await userRepository.create({
       data: {
         email,
         password: passwordHash,

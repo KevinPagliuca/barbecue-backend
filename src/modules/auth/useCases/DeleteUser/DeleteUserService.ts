@@ -1,4 +1,4 @@
-import { userRepository } from '@shared/prisma';
+import { userRepository } from '../../../../shared/prisma';
 
 class DeleteUserService {
   async execute(id: string) {

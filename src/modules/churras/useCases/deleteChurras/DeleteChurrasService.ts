@@ -1,5 +1,5 @@
-import { AppError } from '@shared/errors/AppError';
-import { churrasRepository } from '@shared/prisma';
+import { AppError } from '../../../../shared/errors/AppError';
+import { churrasRepository } from '../../../../shared/prisma';
 
 class DeleteChurrasService {
   async execute(id: string) {

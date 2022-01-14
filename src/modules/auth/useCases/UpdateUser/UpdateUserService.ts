@@ -1,6 +1,6 @@
-import { IUpdateUserDTO } from '@modules/auth/dtos';
-import { AppError } from '@shared/errors/AppError';
-import { userRepository } from '@shared/prisma';
+import { AppError } from '../../../../shared/errors/AppError';
+import { userRepository } from '../../../../shared/prisma';
+import { IUpdateUserDTO } from '../../dtos';
 
 class UpdateUserService {
   async execute({ id, name, email, birthday }: IUpdateUserDTO) {

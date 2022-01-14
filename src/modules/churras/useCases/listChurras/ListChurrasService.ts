@@ -1,4 +1,4 @@
-import { churrasRepository } from '@shared/prisma';
+import { churrasRepository } from '../../../../shared/prisma';
 
 class ListChurrasService {
   async execute() {

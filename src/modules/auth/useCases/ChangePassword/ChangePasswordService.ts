@@ -1,8 +1,8 @@
 import { hash } from 'bcryptjs';
 
-import { IChangePasswordDTO } from '@modules/auth/dtos';
-import { AppError } from '@shared/errors/AppError';
-import { userRepository } from '@shared/prisma';
+import { AppError } from '../../../../shared/errors/AppError';
+import { userRepository } from '../../../../shared/prisma';
+import { IChangePasswordDTO } from '../../dtos';
 
 class ChangePasswordService {
   async execute({ id, password, password_confirmation }: IChangePasswordDTO) {

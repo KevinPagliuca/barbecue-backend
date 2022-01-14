@@ -1,5 +1,5 @@
-import { ICreateChurrasDTO } from '@modules/churras/dtos';
-import { churrasRepository } from '@shared/prisma';
+import { churrasRepository } from '../../../../shared/prisma';
+import { ICreateChurrasDTO } from '../../dtos';
 
 class CreateChurrasService {
   async execute({

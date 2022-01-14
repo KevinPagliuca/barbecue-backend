@@ -7,6 +7,8 @@
   "author": "Kevin Pagliuca",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/shared/infra/server.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --exit-child --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/server.ts"
   },
   "dependencies": {

@@ -1,6 +1,9 @@
-import { IUpdateChurrasDTO } from '@modules/churras/dtos';
-import { AppError } from '@shared/errors/AppError';
-import { churrasRepository, participantsRepository } from '@shared/prisma';
+import { AppError } from '../../../../shared/errors/AppError';
+import {
+  churrasRepository,
+  participantsRepository,
+} from '../../../../shared/prisma';
+import { IUpdateChurrasDTO } from '../../dtos';
 
 class UpdateChurrasSercice {
   async execute({

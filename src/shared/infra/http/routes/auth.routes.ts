@@ -1,11 +1,10 @@
 import { Router } from 'express';
 
-import { authUserController } from '@modules/auth/useCases/AuthUser/AuthUserController';
-import { changePasswordController } from '@modules/auth/useCases/ChangePassword/ChangePasswordController';
-import { createUserController } from '@modules/auth/useCases/CreateUser/CreateUserController';
-import { deleteUserController } from '@modules/auth/useCases/DeleteUser/DeleteUserController';
-import { updateUserController } from '@modules/auth/useCases/UpdateUser/UpdateUserController';
-
+import { authUserController } from '../../../../modules/auth/useCases/AuthUser/AuthUserController';
+import { changePasswordController } from '../../../../modules/auth/useCases/ChangePassword/ChangePasswordController';
+import { createUserController } from '../../../../modules/auth/useCases/CreateUser/CreateUserController';
+import { deleteUserController } from '../../../../modules/auth/useCases/DeleteUser/DeleteUserController';
+import { updateUserController } from '../../../../modules/auth/useCases/UpdateUser/UpdateUserController';
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticate';
 
 const AuthRoutes = Router();
