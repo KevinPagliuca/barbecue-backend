@@ -1,8 +1,8 @@
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
-import { AppError } from '../../../../shared/errors/AppError';
-import { userRepository } from '../../../../shared/prisma';
+import { AppError } from '@shared/errors/AppError';
+import { prismaClient } from '@shared/prisma';
 
 interface IRequest {
   email: string;
@@ -11,7 +11,7 @@ interface IRequest {
 
 class AuthUserService {
   async execute({ email, password }: IRequest) {
-    const user = await userRepository.findFirst({
+    const user = await prismaClient.user.findFirst({
       where: { email },
     });
     if (!user) {

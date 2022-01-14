@@ -21,6 +21,7 @@ CREATE TABLE "Churras" (
     "location" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
+    "user_id" TEXT NOT NULL,
 
     CONSTRAINT "Churras_pkey" PRIMARY KEY ("id")
 );
@@ -36,4 +37,7 @@ CREATE TABLE "Participants" (
 );
 
 -- AddForeignKey
-ALTER TABLE "Participants" ADD CONSTRAINT "Participants_churras_id_fkey" FOREIGN KEY ("churras_id") REFERENCES "Churras"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Churras" ADD CONSTRAINT "Churras_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Participants" ADD CONSTRAINT "Participants_churras_id_fkey" FOREIGN KEY ("churras_id") REFERENCES "Churras"("id") ON DELETE CASCADE ON UPDATE CASCADE;
