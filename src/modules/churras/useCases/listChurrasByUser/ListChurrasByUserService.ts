@@ -1,4 +1,3 @@
-import { AppError } from '../../../../shared/errors/AppError';
 import { churrasRepository } from '../../../../shared/prisma';
 
 class ListChurrasByUserService {
@@ -11,10 +10,6 @@ class ListChurrasByUserService {
         participants: true,
       },
     });
-
-    if (!churras) {
-      throw new AppError('Churras não encontrado', 404);
-    }
 
     return churras;
   }
