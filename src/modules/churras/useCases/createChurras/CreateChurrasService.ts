@@ -1,5 +1,5 @@
-import { ICreateChurrasDTO } from '@modules/churras/dtos';
-import { prismaClient } from '@shared/prisma';
+import { churrasRepository } from '../../../../shared/prisma';
+import { ICreateChurrasDTO } from '../../dtos';
 
 class CreateChurrasService {
   async execute({
@@ -9,22 +9,26 @@ class CreateChurrasService {
     hour,
     location,
     participants,
+    user_id,
   }: ICreateChurrasDTO) {
-    const churras = await prismaClient.churras.create({
+    const churras = await churrasRepository.create({
       data: {
         title,
         date,
         description,
         hour,
+        user_id,
         location,
-        Participants: {
-          createMany: {
-            data: participants,
-          },
-        },
+        participants: !participants
+          ? undefined
+          : {
+              createMany: {
+                data: participants,
+              },
+            },
       },
       include: {
-        Participants: true,
+        participants: true,
       },
     });
 

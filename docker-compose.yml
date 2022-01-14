@@ -4,7 +4,6 @@ services:
   churras:
     build: .
     container_name: churras_app
-    command: sh -c "yarn prisma migrate deploy && yarn prisma generate && yarn dev"
     ports:
       - "3333:3333"
     volumes:
