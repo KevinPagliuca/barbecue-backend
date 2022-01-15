@@ -30,7 +30,9 @@ class UpdateChurrasSercice {
       throw new AppError('Churras não encontrado', 404);
     }
 
-    const participantsWithId = participants.filter((item) => item.id);
+    const participantsWithId = participants.filter(
+      (item) => item.id || item.churras_id
+    );
     const participantsWithoutId = participants.filter((item) => !item.id);
 
     const updatedChurras = await churrasRepository.update({

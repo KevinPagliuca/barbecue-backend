@@ -24,12 +24,12 @@ model User {
 model Churras {
   id                  String   @id @default(uuid())
   title               String
-  description         String
   date                DateTime
   hour                String
   suggest_value       Float    @default(0)
   suggest_drink_value Float    @default(0)
   location            String
+  description         String?
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt

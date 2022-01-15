@@ -20,6 +20,7 @@ export type IUpdateChurrasDTO = {
     id?: string;
     name: string;
     value: number;
+    churras_id?: string;
   }[];
   deleted_participants?: string[];
 } & Omit<ICreateChurrasDTO, 'participants'>;
