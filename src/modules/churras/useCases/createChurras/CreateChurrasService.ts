@@ -36,8 +36,6 @@ class CreateChurrasService {
       },
     });
 
-    console.log(churras);
-
     return churras;
   }
 }
