@@ -10,6 +10,8 @@ class CreateChurrasService {
     location,
     participants,
     user_id,
+    suggest_drink_value,
+    suggest_value,
   }: ICreateChurrasDTO) {
     const churras = await churrasRepository.create({
       data: {
@@ -19,6 +21,8 @@ class CreateChurrasService {
         hour,
         user_id,
         location,
+        suggest_value: Number(suggest_value),
+        suggest_drink_value: Number(suggest_drink_value),
         participants: !participants
           ? undefined
           : {

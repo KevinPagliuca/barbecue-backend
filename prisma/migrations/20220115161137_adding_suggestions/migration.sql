@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Churras" ADD COLUMN     "suggest_drink_value" DOUBLE PRECISION NOT NULL DEFAULT 0,
+ADD COLUMN     "suggest_value" DOUBLE PRECISION NOT NULL DEFAULT 0;

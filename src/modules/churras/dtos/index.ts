@@ -5,6 +5,8 @@ export interface ICreateChurrasDTO {
   location: string;
   user_id: string;
   description: string;
+  suggest_value: string;
+  suggest_drink_value: string;
   participants: {
     name: string;
     value: number;

@@ -16,6 +16,8 @@ class UpdateChurrasSercice {
     participants,
     deleted_participants,
     user_id,
+    suggest_drink_value,
+    suggest_value,
   }: IUpdateChurrasDTO) {
     const churras = await churrasRepository.findFirst({
       where: {
@@ -39,6 +41,8 @@ class UpdateChurrasSercice {
         hour,
         location,
         description,
+        suggest_value: Number(suggest_value),
+        suggest_drink_value: Number(suggest_drink_value),
         participants: {
           updateMany: participantsWithId.map((participante) => ({
             where: { id: participante.id },
